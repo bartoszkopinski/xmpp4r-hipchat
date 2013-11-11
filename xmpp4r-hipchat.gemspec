@@ -1,15 +1,13 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'xmpp4r/hipchat/version'
+require File.expand_path('../lib/xmpp4r/hipchat/version', __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name          = 'xmpp4r-hipchat'
-  spec.version       = Jabber::MUC::Hipchat::VERSION
+  spec.version       = XMPP4R::HipChat::VERSION
   spec.authors       = ['Bartosz Kopiński']
   spec.email         = ['bartosz.kopinski@gmail.com']
-  spec.description   = 'HipChat client extension to xmpp4r'
-  spec.summary       = 'HipChat client extension to xmpp4r'
+  spec.description   = 'HipChat client extension to XMPP4R'
+  spec.summary       = 'HipChat client extension to XMPP4R'
   spec.homepage      = 'https://github.com/bartoszkopinski/xmpp4r-hipchat'
   spec.license       = 'MIT'
 

@@ -1,7 +1,5 @@
-module Jabber
-  module MUC
-    module Hipchat
-      VERSION = '0.0.1'
-    end
+module XMPP4R
+  module HipChat
+    VERSION = '0.0.2'
   end
 end
