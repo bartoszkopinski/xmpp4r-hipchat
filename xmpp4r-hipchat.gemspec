@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['bartosz.kopinski@gmail.com']
   spec.description   = 'HipChat client extension to xmpp4r'
   spec.summary       = 'HipChat client extension to xmpp4r'
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/bartoszkopinski/xmpp4r-hipchat'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
@@ -18,6 +18,4 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
   spec.add_runtime_dependency 'xmpp4r', ['~> 0.5']
-  spec.add_development_dependency 'bundler', '~> 1.4'
-  spec.add_development_dependency 'rake'
 end
