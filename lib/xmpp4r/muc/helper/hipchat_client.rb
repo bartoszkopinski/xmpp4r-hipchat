@@ -171,7 +171,8 @@ module Jabber
         from_jid      = presence.from.strip.to_s
         presence_type = presence.type.to_s
         user_name     = presence.from.resource
-        if user_name.nil?
+
+        if presence.from.domain == chat_domain
           @callbacks[:lobby_presence].process(from_jid, presence_type)
         else
           @callbacks[:room_presence].process(from_jid, user_name, presence_type)
