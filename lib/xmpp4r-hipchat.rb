@@ -6,4 +6,16 @@ require 'xmpp4r/muc/iq/mucadmin'
 require 'xmpp4r/dataforms'
 require 'xmpp4r/roster'
 require 'xmpp4r/vcard'
+
+require 'xmpp4r/muc/hipchat/message'
+require 'xmpp4r/muc/hipchat/kick_message'
+
+require 'xmpp4r/muc/hipchat/presence'
+
+# require 'xmpp4r/muc/hipchat/received_presence'
+# require 'xmpp4r/muc/hipchat/received_message'
+require 'xmpp4r/muc/hipchat/received_stanza'
+require 'xmpp4r/muc/hipchat/room_data'
+require 'xmpp4r/muc/hipchat/vcard'
+require 'xmpp4r/muc/hipchat/user_data'
 require 'xmpp4r/muc/helper/hipchat_client'

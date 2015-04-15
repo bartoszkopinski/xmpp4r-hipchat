@@ -1,6 +1,6 @@
 module Jabber
   module MUC
-    class HipchatClient
+    class SlackClient
       attr_reader :my_jid
 
       def initialize jid, conference_host = nil
