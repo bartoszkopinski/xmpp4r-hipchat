@@ -22,11 +22,15 @@ module Jabber
         end
 
         def role
-          @stanza.x.items.first.role
+          if @stanza.x.respond_to?(:items)
+            @stanza.x.items.first.role
+          end
         end
 
         def host
-          @stanza.from.domain
+          if from = @stanza.from
+            from.domain
+          end
         end
 
         def type
