@@ -11,8 +11,11 @@ module Jabber
 
         def get_text type, jid, text, subject = nil
           self.dup.tap do |d|
+            recipient = JID.new(jid)
+            recipient.resource ||= recipient.node
+
             d.body    = text.to_s
-            d.to      = JID.new(jid)
+            d.to      = recipient
             d.type    = type
             d.subject = subject if subject
           end
