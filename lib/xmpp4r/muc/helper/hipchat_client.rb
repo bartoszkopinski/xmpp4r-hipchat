@@ -141,7 +141,7 @@ module Jabber
         when :chat
           handle_private_message(message)
         when :groupchat
-          handle_private_message(message)
+          handle_group_message(message)
         when :error
           handle_error(message)
         else
