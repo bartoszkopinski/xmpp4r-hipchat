@@ -2,63 +2,39 @@ module Jabber
   module MUC
     module HipChat
       class ReceivedStanza
-        def initialize stanza, chat_host
-          @stanza  = stanza
-          @is_lobby = chat_host == host
+        def initialize stanza
+          @stanza = stanza
         end
 
-        def invite?
-          !@stanza.x.nil? &&
-            @stanza.x.kind_of?(XMUCUser) &&
-            @stanza.x.first.kind_of?(XMUCUserInvite)
-        end
-
-        def name
-          @stanza.name
-        end
-
-        def lobby?
-          @is_lobby
-        end
-
-        def role
-          if @stanza.x.respond_to?(:items)
-            @stanza.x.items.first.role
-          end
-        end
-
-        def host
-          if from = @stanza.from
-            from.domain
-          end
-        end
-
+        # Presence Types: :available, :unavailable, ...
+        # Message Types: :chat, :groupchat, :error, ...
         def type
-          @stanza.type || :available
+          @stanza.type
         end
 
-        def user_name
-          @stanza.from.resource.to_s
+        # User ID is available in presences and private messages
+        def user_id
+          item.jid.node if item
         end
 
-        def from_jid
-          @stanza.from.strip.to_s
+        def sender_id
+          @stanza.from.node
+        end
+        alias_method :room_id, :sender_id
+
+        # Used in room message or presence
+        def sender_name
+          @stanza.from.resource
         end
 
-        def topic
-          if invite?
-            @stanza.children.last.first_element_text('topic')
-          else
-            @stanza.subject.to_s
+        private
+
+        def item
+          @item ||= begin
+            if @stanza.x.respond_to?(:items)
+              @stanza.x.items.first
+            end
           end
-        end
-
-        def room_name
-          @stanza.children.last.first_element_text('name')
-        end
-
-        def body
-          @stanza.body.to_s
         end
       end
     end

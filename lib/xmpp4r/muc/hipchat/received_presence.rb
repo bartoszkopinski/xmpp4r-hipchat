@@ -1,9 +1,9 @@
 module Jabber
   module MUC
     module HipChat
-      class ReceivedPresence
-        def initialize presence, chat_host
-          @presence = presence
+      class ReceivedPresence < ReceivedStanza
+        def initialize stanza, chat_host
+          super stanza
           @is_lobby = chat_host == host
         end
 
@@ -11,24 +11,20 @@ module Jabber
           @is_lobby
         end
 
-        def from_jid
-          @presence.from.strip.to_s
+        def type
+          super || @stanza.show || :available
         end
 
-        def user_name
-          @presence.from.resource.to_s
-        end
+        ## Room presence
 
         def role
-          @presence.x.items.first.role
+          item.affiliation if item
         end
+
+        private
 
         def host
-          @presence.from.domain
-        end
-
-        def type
-          @presence.type || :available
+          @stanza.from.domain if @stanza.from
         end
       end
     end

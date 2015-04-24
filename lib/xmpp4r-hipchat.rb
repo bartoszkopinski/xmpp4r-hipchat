@@ -12,9 +12,9 @@ require 'xmpp4r/muc/hipchat/kick_message'
 
 require 'xmpp4r/muc/hipchat/presence'
 
-# require 'xmpp4r/muc/hipchat/received_presence'
-# require 'xmpp4r/muc/hipchat/received_message'
 require 'xmpp4r/muc/hipchat/received_stanza'
+require 'xmpp4r/muc/hipchat/received_presence'
+require 'xmpp4r/muc/hipchat/received_message'
 require 'xmpp4r/muc/hipchat/room_data'
 require 'xmpp4r/muc/hipchat/vcard'
 require 'xmpp4r/muc/hipchat/user_data'

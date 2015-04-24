@@ -27,8 +27,9 @@ module Jabber
         end
 
         class << self
-          def get_details stream, user_jid
+          def get_details stream, user_id
             @vcard_helper ||= Vcard::Helper.new(stream)
+            user_jid        = JID.new(user_id, stream.host)
             vcard           = @vcard_helper.get(user_jid)
             VCard.new(vcard)
           end

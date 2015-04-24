@@ -2,33 +2,27 @@ module Jabber
   module MUC
     module HipChat
       class RoomData
-        ATTRIBUTES = [:id, :topic, :privacy, :is_archived, :guest_url, :owner, :last_active]
-        attr_accessor *ATTRIBUTES
+        # ATTRIBUTES = [:id, :topic, :privacy, :is_archived, :guest_url, :owner, :last_active, :num_participants]
+        attr_accessor :attributes
 
         def initialize room
-          @room    = room
-          room.first.children.each do |c|
-            self.send("#{c.name}=", c.text)
-          end
-        end
+          @room       = room
+          @attributes = {
+            "name" => name,
+            "id" => id,
+          }
 
-        def attributes
-          ATTRIBUTES.each_with_object({}) do |attribute, h|
-            h[attribute] = self.send(attribute)
+          room.first.children.each do |c|
+            @attributes[c.name] ||= c.text
           end
         end
-        alias_method :hipchat_id, :id
 
         def name
           @room.iname
         end
 
-        def jid
-          @room.jid.to_s
-        end
-
-        def archived?
-          !!self.is_archived
+        def id
+          @room.jid.node
         end
 
         class << self

@@ -6,8 +6,8 @@ module Jabber
           @user = user
         end
 
-        def jid
-          @user.jid.to_s
+        def id
+          @user.jid.node
         end
 
         def name
