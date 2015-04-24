@@ -1,6 +1,6 @@
-# Xmpp4r::Hipchat
+# XMPP4R-Hipchat
 
-TODO: Write a gem description
+This is a HipChat / Slack XMPP adapter using XMPP4R lib.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Please refer to [Hipbot](https://github.com/pewniak747/hipbot) source code for up-to-date usage example. This gem is still in development.
 
 ## Contributing
 

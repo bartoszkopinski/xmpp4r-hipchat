@@ -5,9 +5,8 @@ Gem::Specification.new do |spec|
   spec.name          = 'xmpp4r-hipchat'
   spec.version       = XMPP4R::HipChat::VERSION
   spec.authors       = ['Bartosz Kopiński']
-  spec.email         = ['bartosz.kopinski@gmail.com']
-  spec.description   = 'HipChat client extension to XMPP4R'
-  spec.summary       = 'HipChat client extension to XMPP4R'
+  spec.email         = ['bartosz@kopinski.pl']
+  spec.summary       = 'HipChat / Slack XMPP Client'
   spec.homepage      = 'https://github.com/bartoszkopinski/xmpp4r-hipchat'
   spec.license       = 'MIT'
 
